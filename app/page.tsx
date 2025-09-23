@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      <div>Next.js on GitHub Pages</div>
+      <div>Hot Club Of Nowhere</div>
     </main>
   );
 }
