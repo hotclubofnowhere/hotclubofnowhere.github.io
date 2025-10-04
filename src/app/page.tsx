@@ -9,15 +9,21 @@ export default function Home() {
     <Container maxWidth="lg">
       <Box
         sx={{
-          my: 4,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <Typography variant="h5" component="h1" sx={{ mb: 2 }}>
-          {process.env.NEXT_PUBLIC_WEBSITE_DESCRIPTION}
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{
+            mb: 2,
+            display: { xs: 'none', sm: 'block' },
+          }}
+        >
+          {process.env.NEXT_PUBLIC_WEBSITE_NAME}
         </Typography>
         <Copyright />
       </Box>

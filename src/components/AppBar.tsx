@@ -62,7 +62,7 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar component="nav">
-                <Toolbar>
+                <Toolbar sx={{ justifyContent: 'flex-end' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -75,7 +75,7 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none', md: 'none' } }}
                     >
                         {props.title}
                     </Typography>
