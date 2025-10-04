@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import ModeSwitch from '@/components/ModeSwitch';
 
 const drawerWidth = 240;
 type NavItem = { text: string, href: string };
@@ -32,7 +33,7 @@ const navItems: NavItems = {
     }
 };
 
-export default function DrawerAppBar(props: { title?: string | "Hot Club Of Nowhere" }) {
+export default function DrawerAppBar(props: { children?: React.ReactNode, title?: string | "Hot Club Of Nowhere" }) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -74,7 +75,7 @@ export default function DrawerAppBar(props: { title?: string | "Hot Club Of Nowh
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
                         {props.title}
                     </Typography>
@@ -85,6 +86,7 @@ export default function DrawerAppBar(props: { title?: string | "Hot Club Of Nowh
                             </Button>
                         ))}
                     </Box>
+                    {props.children}
                 </Toolbar>
             </AppBar>
             <nav>
