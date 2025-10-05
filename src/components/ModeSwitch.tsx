@@ -19,7 +19,7 @@ export default function ModeSwitch() {
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: 'inline-flex',
         justifyContent: 'flex-end',
         mt: 1,
         p: 1,

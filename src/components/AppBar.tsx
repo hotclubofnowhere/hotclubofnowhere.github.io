@@ -63,30 +63,33 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
             <CssBaseline />
             <AppBar component="nav">
                 <Toolbar sx={{ justifyContent: 'flex-end' }}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none', md: 'none' } }}
-                    >
-                        {props.title}
-                    </Typography>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                    <Box sx={{ flexGrow: { xs: 0, sm: 2 } }}>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{
+                                mr: 2,
+                                display: { sm: 'none' }
+                            }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    </Box>
+                    <Box flexGrow={1}>
+                        <Typography variant="h5" component="div">
+                            <strong>{props.title}</strong>
+                        </Typography>
+                    </Box>
+                    <Box display='flex' sx={{ display: { xs: 'none', sm: 'block', flexGrow: 0, justifyContent: 'space-evenly' } }}>
                         {Object.keys(navItems).map((item) => (
-                            <Button key={item} href={navItems[item].href} sx={{ color: 'inherit' }}>
+                            <Button key={item} href={navItems[item].href} sx={{ display: 'inline-flex', color: 'inherit' }}>
                                 {navItems[item].text}
                             </Button>
                         ))}
+                        {props.children}
                     </Box>
-                    {props.children}
                 </Toolbar>
             </AppBar>
             <nav>
@@ -105,7 +108,7 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
                     {drawer}
                 </Drawer>
             </nav>
-            <Box component="main" sx={{ p: 3 }}>
+            <Box>
                 <Toolbar />
             </Box>
         </Box>

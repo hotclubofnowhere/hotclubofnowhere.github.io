@@ -18,9 +18,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
 					<ThemeProvider theme={theme}>
 						<CssBaseline />
 						<AppBar title={process.env.NEXT_PUBLIC_WEBSITE_NAME}>
-							<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-								<ModeSwitch />
-							</Box>
+							<ModeSwitch />
 						</AppBar>
 						{props.children}
 					</ThemeProvider>
