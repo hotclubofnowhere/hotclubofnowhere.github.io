@@ -18,8 +18,9 @@ const theme = createTheme({
           contrastText: '#d7be69',
         },
         secondary: {
-          main: '#e1d6f6',
+          main: '#d7be69',
           contrastText: '#1f1930',
+          dark: '#a47e4f',
         },
         background: {
           default: '#d7be69',
@@ -32,7 +33,7 @@ const theme = createTheme({
       palette: {
         mode: 'dark',
         primary: {
-          main: '#a47e4f',
+          main: '#2a3019',
           contrastText: '#d7be69',
         },
         secondary: {

@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import theme from '@/theme';
 import AppBar from '@/components/AppBar';
 import ModeSwitch from '@/components/ModeSwitch';
-import Copyright from '@/components/Copyright';
+import Footer from '@/components/Footer';
 
 export default function RootLayout(props: { children: React.ReactNode }) {
 	return (
@@ -22,7 +22,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
 							sx={{
 								display: 'flex',
 								flexDirection: 'column',
-								justifyContent: 'center',
+								justifyContent: 'space-between',
 								alignItems: 'center',
 							}}
 						>
@@ -30,7 +30,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
 								<ModeSwitch />
 							</AppBar>
 							{props.children}
-							<Copyright />
+							<Footer />
 						</Box>
 					</ThemeProvider>
 				</AppRouterCacheProvider>
