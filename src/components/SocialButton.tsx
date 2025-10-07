@@ -29,7 +29,7 @@ export default function SocialButton(props: { platform: keyof typeof Socials, ti
                 borderRadius: 6,
             }}
         >
-            <IconButton title={props.title} size='large' target="_blank" href={props.url}>
+            <IconButton title={props.title} size='large' target="_blank" href={props.url} sx={{ color: 'inherit' }}>
                 {icon}
             </IconButton>
         </Box>

@@ -7,9 +7,6 @@ export default function Copyright() {
     <Typography
       variant="body2"
       align="center"
-      sx={{
-        color: 'text.secondary',
-      }}
     >
       {'Copyright © '}
       <MuiLink color="inherit" href={process.env.NEXT_PUBLIC_WEBSITE_URL}>
