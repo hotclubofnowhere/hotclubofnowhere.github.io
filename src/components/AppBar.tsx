@@ -13,10 +13,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import ModeSwitch from '@/components/ModeSwitch';
+import { useTheme } from '@mui/material/styles';
 
 const drawerWidth = 240;
-type NavItem = { text: string, href: string };
+type NavItem = { text: string, href: string, enabled?: boolean };
 type NavItems = { [key: string]: NavItem };
 const navItems: NavItems = {
     home: {
@@ -29,11 +29,13 @@ const navItems: NavItems = {
     },
     contact: {
         text: 'Contact',
-        href: '/contact',
+        href: '/#contact',
+        enabled: false,
     }
 };
 
 export default function DrawerAppBar(props: { children?: React.ReactNode, title?: string | "Hot Club Of Nowhere" }) {
+    const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -47,13 +49,19 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
             </Typography>
             <Divider />
             <List>
-                {Object.keys(navItems).map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton href={navItems[item].href} sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={navItems[item].text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {
+                    Object.keys(navItems).map((item) => {
+                        if (navItems[item]?.enabled === false) return;
+
+                        return (
+                            <ListItem key={item} disablePadding>
+                                <ListItemButton href={navItems[item].href} sx={{ textAlign: 'center' }}>
+                                    <ListItemText primary={navItems[item].text} />
+                                </ListItemButton>
+                            </ListItem>
+                        );
+                    })
+                }
             </List>
         </Box>
     );
@@ -61,7 +69,7 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar component="nav" sx={{ backgroundColor: theme.palette.primary.main }} >
                 <Toolbar sx={{ justifyContent: 'flex-end' }}>
                     <Box sx={{ flexGrow: { xs: 0, sm: 2 } }}>
                         <IconButton
@@ -83,11 +91,17 @@ export default function DrawerAppBar(props: { children?: React.ReactNode, title?
                         </Typography>
                     </Box>
                     <Box display='flex' sx={{ display: { xs: 'none', sm: 'block', flexGrow: 0, justifyContent: 'space-evenly' } }}>
-                        {Object.keys(navItems).map((item) => (
-                            <Button key={item} href={navItems[item].href} sx={{ display: 'inline-flex', color: 'inherit' }}>
-                                {navItems[item].text}
-                            </Button>
-                        ))}
+                        {
+                            Object.keys(navItems).map((item) => {
+                                if (navItems[item]?.enabled === false) return;
+
+                                return (
+                                    <Button key={item} href={navItems[item].href} sx={{ display: 'inline-flex', color: 'inherit' }}>
+                                        {navItems[item].text}
+                                    </Button>
+                                );
+                            })
+                        }
                         {props.children}
                     </Box>
                 </Toolbar>

@@ -14,35 +14,36 @@ const theme = createTheme({
       palette: {
         mode: 'light',
         primary: {
-          main: '#2a3019',
+          main: '#424a26',
+          dark: '#2a3019',
           contrastText: '#d7be69',
         },
         secondary: {
-          main: '#d7be69',
+          main: '#5c6b28',
           contrastText: '#1f1930',
         },
         background: {
           default: '#d7be69',
-          paper: '#f9ffe1',
+          paper: '#d7be69',
         },
-        divider: '#d7be69',
+        divider: '#2a3019',
       },
     },
     dark: {
       palette: {
         mode: 'dark',
         primary: {
-          main: '#2a3019',
+          main: '#424a26',
+          dark: '#2a3019',
           contrastText: '#d7be69',
         },
         secondary: {
           main: '#5c6b28',
-          dark: '#424a26',
           contrastText: '#1f1930',
         },
         background: {
-          paper: '#2a3019',
-          default: '#12121',
+          paper: '#424a26',
+          default: '#424a26',
         },
         text: {
           primary: '#d7be69',
