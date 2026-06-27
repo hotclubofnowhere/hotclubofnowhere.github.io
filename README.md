@@ -1,4 +1,4 @@
-# [Hot Club Of Nowhere](https://hotclubofnowhere.github.io/)
+# [Hot Club Of Nowhere](https://hotclubofnowhere.ca/)
 
 ## About
 
