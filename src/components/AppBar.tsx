@@ -26,6 +26,7 @@ const navItems: NavItems = {
     about: {
         text: 'About',
         href: '/about',
+        enabled: false,
     },
     contact: {
         text: 'Contact',
